@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+body {
+    @apply bg-white dark:bg-neutral-900!
+}
+
+html.dark {
+    @apply bg-neutral-900 text-neutral-300
+}

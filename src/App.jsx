@@ -4,9 +4,9 @@ import { ScrollRestoration } from "react-router";
 
 const App = () => {
   return (
-    <RouterProvider router={router}>
-      <ScrollRestoration />
-    </RouterProvider>
+    <>
+    
+    </>
   );
 };
 

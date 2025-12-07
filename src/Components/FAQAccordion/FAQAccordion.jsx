@@ -1,68 +1,88 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from 'react';
 
 const FAQAccordion = () => {
-    const faqs = [
-        {
-          id: 1,
-          question: "What percentage of Younika coffee beans are Arabica?",
-          answer: "Younika coffee beans are 100% Arabica.",
-        },
-        {
-          id: 2,
-          question: "How much caffeine is in Younika coffee beans?",
-          answer: "The caffeine content varies depending on the roast level, but it generally contains a moderate amount.",
-        },
-        {
-          id: 3,
-          question: "What brewing methods are suitable for Younika coffee beans?",
-          answer: "They work well with pour-over, espresso, French press, and cold brew methods.",
-        },
-        {
-          id: 4,
-          question: "How do we brew coffee using Younika beans?",
-          answer: "Grind the beans according to your brewing method and adjust the ratio of water to coffee for taste.",
-        },
-      ];
-    
-      const [openId, setOpenId] = useState(null);
-    
-      const toggle = (id) => {
-        setOpenId(openId === id ? null : id);
-      };
-    
-      return (
-        <div className="w-85 pt-5">      
-          <div className="space-y-4">
-            {faqs.map((item) => (
-              <div
-                key={item.id}
-                className="border-3 border-black/10 rounded-sm p-4 transition-all duration-200"
-              >
-                <button
-                  onClick={() => toggle(item.id)}
-                  className="flex items-center justify-between text-left"
-                >
-                  <span className="text-lg font-medium">{item.question}</span>
-                  <span
-                    className={`transition-transform duration-200 ${
-                      openId === item.id ? "rotate-180" : "rotate-0"
-                    }`}
-                  >
-                    ▼
-                  </span>
-                </button>
-    
-                {openId === item.id && (
-                  <div className="mt-3 text-gray-700 animate-fadeIn">
-                    {item.answer}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-  )
-}
+// JavaScript Array for the Nike Footwear FAQs
+const faqs = [
+  {
+    id: 1,
+    question: "What is the upper material of this specific Nike shoe model?",
+    answer: "The upper part of this shoe is constructed from a combination of **Breathable Mesh** fabric and reinforcing overlays of **Synthetic Leather**, ensuring both durability and ventilation.",
+  },
+  {
+    id: 2,
+    question: "What is the primary technology used in the shoe's Midsole?",
+    answer: "This model utilizes **Nike Zoom Air** technology for superior shock absorption and high energy return in the heel and forefoot areas. This feature is ideal for running and high-impact activities.",
+  },
+  {
+    id: 3,
+    question: "Is this shoe suitable for everyday use (Lifestyle) or exclusively for athletic performance?",
+    answer: "The sleek design and comfort provided by the integrated **React technology** make this shoe suitable for both light running and gym workouts, as well as extended daily wear.",
+  },
+  {
+    id: 4,
+    question: "How should I choose the correct size for Nike footwear?",
+    answer: "Generally, Nike shoes tend to run slightly small. It is recommended to measure your foot and choose **half a size larger** than your standard size, especially if you are between two sizes.",
+  },
+];
 
-export default FAQAccordion
+  const [openId, setOpenId] = useState(null);
+
+  const toggle = (id) => {
+    setOpenId(openId === id ? null : id);
+  };
+
+  return (
+    // تغییر 1: استفاده از w-full و max-w-3xl برای کنترل عرض در صفحات مختلف
+    // اضافه کردن px-4 برای فاصله از لبه‌ها در موبایل
+    <div className="w-full max-w-3xl mx-auto pt-10">
+      <div className="space-y-4">
+        {faqs.map((item) => {
+            const isOpen = openId === item.id;
+            return (
+          <div
+            key={item.id}
+            // تغییر 2: استایل مدرن‌تر، بوردر ظریف‌تر، گوشه‌های گردتر
+            // تغییر رنگ بوردر وقتی آیتم باز است
+            className={`border rounded-lg transition-all duration-300 ${
+                isOpen ? 'border-black bg-gray-50 dark:bg-neutral-800' : 'border-gray-100 dark:border-neutral-600 dark:bg-neutral-800 hover:border-gray-400 bg-white'
+            }`}
+          >
+            <button
+              onClick={() => toggle(item.id)}
+              // تغییر 3: پدینگ ریسپانسیو (در دسکتاپ بیشتر می‌شود)
+              // استفاده از w-full برای اینکه کل عرض دکمه قابل کلیک باشد
+              className="flex w-full items-center justify-between p-4 md:p-6 text-left focus:outline-none"
+            >
+              {/* تغییر 4: تایپوگرافی ریسپانسیو برای عنوان سوال */}
+              <span className={`text-lg md:text-xl font-medium transition-colors duration-200 ${isOpen ? 'text-black dark:text-neutral-400' : 'text-gray-800 dark:text-neutral-50'}`}>
+                {item.question}
+              </span>
+              
+              {/* تغییر 5: استفاده از آیکون SVG به جای متن برای ظاهر حرفه‌ای‌تر */}
+              <span
+                className={`ml-4 flex-shrink-0 text-gray-400 transition-transform duration-300 ${
+                  isOpen ? "rotate-180 text-black" : "rotate-0"
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </span>
+            </button>
+
+            {/* بخش پاسخ */}
+            {isOpen && (
+              // استفاده از انیمیشن ساده فید
+              // پدینگ مناسب و رنگ متن خوانا
+              <div className="px-4 pb-4 md:px-6 md:pb-6 text-gray-600 dark:text-white/85 leading-relaxed animate-[fadeIn_0.3s_ease-in-out]">
+                {item.answer}
+              </div>
+            )}
+          </div>
+        )})}
+      </div>
+    </div>
+  );
+};
+
+export default FAQAccordion;
