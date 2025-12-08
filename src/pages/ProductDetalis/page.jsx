@@ -90,10 +90,10 @@ const ProductDetalis = () => {
 
                     <div className='lg:col-span-3'>
                         <div className="sticky top-4">
-                            <button className='flex justify-center rounded-sm items-center gap-2.5 bg-black text-lg text-white dark:bg-white dark:text-black font-semibold w-full py-2.5 hover:bg-black/80 dark:hover:bg-white/60 transition-colors'>
+                            <button className='flex hover:rounded-4xl justify-center rounded-sm items-center gap-2.5 bg-black text-lg text-white dark:bg-white dark:text-black font-semibold w-full py-2.5 hover:bg-black/80 dark:hover:bg-white/60 transition-colors'>
                                 <FiShoppingBag className='text-2xl' />Add to Bag
                             </button>
-                            <button className='flex justify-center rounded-sm items-center mt-5 gap-2 text-lg border-2 font-semibold w-full py-2.5 hover:bg-gray-100 transition-colors'>
+                            <button className='flex hover:rounded-4xl justify-center rounded-sm items-center mt-5 gap-2 text-lg border-2 font-semibold w-full py-2.5 hover:bg-gray-100/20 transition-colors'>
                                 <RiHeartAdd2Line className='text-2xl' />Favorite
                             </button>
                             <div className="mt-8">

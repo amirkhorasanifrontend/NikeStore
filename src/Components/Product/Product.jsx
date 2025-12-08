@@ -36,7 +36,7 @@ const Product = ({ id, src, status, title, size, colornumber, price, New, See })
           transition-opacity duration-300"
       >
         <p className="text-white cursor-pointer bg-black dark:bg-white dark:text-black text-[15px]
-          px-3 py-1 pointer-events-auto font-semibold">
+          px-3 py-1 pointer-events-auto hover:rounded-4xl font-semibold">
           <Link to={PRODUCT_URL}>View Details</Link>
         </p>
       </button>
@@ -53,7 +53,7 @@ const Product = ({ id, src, status, title, size, colornumber, price, New, See })
         <p>43</p>
       </button>
 
-      <div className="px-4 *:font-semibold">
+      <div className="px-4 *:mt-1 *:font-semibold">
         {loading ? (
           <div className="animate-pulse space-y-2 py-2">
             <div className="h-4 bg-gray-300 rounded w-1/3" />

@@ -9,7 +9,7 @@ const SearchInput = ({ inputValue, onChange }) => {
       <input
         type="text"
         placeholder="Search"
-        className="w-full bg-gray-200 dark:bg-neutral-700 pl-10 pr-4 py-2 border-0 focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-sm"
+        className="w-full hover:rounded-4xl bg-gray-200 dark:bg-neutral-700 pl-10 pr-4 py-2 border-0 focus:outline-none focus:ring-1 focus:ring-gray-500 rounded-sm"
         value={inputValue}
         onChange={(e) => {
           onChange(e.target.value);

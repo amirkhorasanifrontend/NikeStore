@@ -32,8 +32,6 @@ const faqs = [
   };
 
   return (
-    // تغییر 1: استفاده از w-full و max-w-3xl برای کنترل عرض در صفحات مختلف
-    // اضافه کردن px-4 برای فاصله از لبه‌ها در موبایل
     <div className="w-full max-w-3xl mx-auto pt-10">
       <div className="space-y-4">
         {faqs.map((item) => {
@@ -41,24 +39,19 @@ const faqs = [
             return (
           <div
             key={item.id}
-            // تغییر 2: استایل مدرن‌تر، بوردر ظریف‌تر، گوشه‌های گردتر
-            // تغییر رنگ بوردر وقتی آیتم باز است
             className={`border rounded-lg transition-all duration-300 ${
                 isOpen ? 'border-black bg-gray-50 dark:bg-neutral-800' : 'border-gray-100 dark:border-neutral-600 dark:bg-neutral-800 hover:border-gray-400 bg-white'
             }`}
           >
             <button
               onClick={() => toggle(item.id)}
-              // تغییر 3: پدینگ ریسپانسیو (در دسکتاپ بیشتر می‌شود)
-              // استفاده از w-full برای اینکه کل عرض دکمه قابل کلیک باشد
               className="flex w-full items-center justify-between p-4 md:p-6 text-left focus:outline-none"
             >
-              {/* تغییر 4: تایپوگرافی ریسپانسیو برای عنوان سوال */}
+
               <span className={`text-lg md:text-xl font-medium transition-colors duration-200 ${isOpen ? 'text-black dark:text-neutral-400' : 'text-gray-800 dark:text-neutral-50'}`}>
                 {item.question}
               </span>
-              
-              {/* تغییر 5: استفاده از آیکون SVG به جای متن برای ظاهر حرفه‌ای‌تر */}
+
               <span
                 className={`ml-4 flex-shrink-0 text-gray-400 transition-transform duration-300 ${
                   isOpen ? "rotate-180 text-black" : "rotate-0"
@@ -70,10 +63,7 @@ const faqs = [
               </span>
             </button>
 
-            {/* بخش پاسخ */}
             {isOpen && (
-              // استفاده از انیمیشن ساده فید
-              // پدینگ مناسب و رنگ متن خوانا
               <div className="px-4 pb-4 md:px-6 md:pb-6 text-gray-600 dark:text-white/85 leading-relaxed animate-[fadeIn_0.3s_ease-in-out]">
                 {item.answer}
               </div>

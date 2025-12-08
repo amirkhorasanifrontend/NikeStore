@@ -5,6 +5,7 @@ import Register from "./pages/Register/page";
 import RootLayout from "./Components/layout/RootLayout";
 import ProductDetalis from "./pages/ProductDetalis/page";
 import Login from "./pages/Login/page";
+import NotFound from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         path: "/shopping-cart",
         element: <ShoppingCart />,
       },
+      {
+        path: "/*",
+        element: <NotFound />,
+        handle: { hideFooter: true },
+      }
     ]
   },
   {
