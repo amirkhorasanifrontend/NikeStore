@@ -6,6 +6,7 @@ import RootLayout from "./Components/layout/RootLayout";
 import ProductDetalis from "./pages/ProductDetalis/page";
 import Login from "./pages/Login/page";
 import NotFound from "./pages/NotFound/NotFound";
+import InformationForm from "./pages/InformationForm/InformationForm";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/shopping-cart",
         element: <ShoppingCart />,
+      },
+      {
+        path: "/InformationForm",
+        element: <InformationForm />
       },
       {
         path: "/*",
